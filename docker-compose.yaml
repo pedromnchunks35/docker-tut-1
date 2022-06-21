@@ -1,0 +1,35 @@
+#version of docker compose
+version: "3.8"
+#services (containers we would like to use)
+services:
+ myblog:
+    build: ./myblog
+    container_name: myblog_container
+    ports:
+    - '3000:3000'
+    volumes:
+    - ./myblog:/app
+    - /home/pedromn35/Desktop/back-end tutorials/docker-tut-1/myblog/node_modules
+    #FOR REACT APPS , TO TURN IT INTERACTIVE
+    stdin_open: true
+    tty: true
+ #THIS IS A EXAMPLE OF ONE SERVICE (API) 
+ api:
+   #LOCATION OF THE DOCKERFILE
+   build: ./api
+   #NAME OF THE CONTAINER
+   container_name: api_container
+   #THE PORTS WE WOULD LIKE TO USE
+   ports: 
+     - '4000:4000'
+   #VOLUMES LOCATION
+   volumes:
+     - ./api:/app
+     - /home/pedromn35/Desktop/back-end tutorials/docker-tut-1/api/node_modules
+
+
+#TO RUN THIS FILE WE SHOULD WRITE docker-compose up IN THE SAME DIR
+#TO STOP THE CONTAINER docker-compose down 
+#TO REMOVE ALSO THE IMAGES docker-compose down --rmi all
+#TO REMOVE ALSO VOLUMES docker-compose down -v all
+  

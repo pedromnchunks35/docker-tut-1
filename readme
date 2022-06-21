@@ -1,0 +1,13 @@
+# DOCKER TUTORIAL
+
+TO APPLY THIS NEW IMAGE WE USE: docker build -t (name of the container) (dir of the docker file)
+Put files to ignore in .dockerignore
+
+docker run -p (PORTA_DO_PC):(PORTA QUE ESTA MARCADA NO CONTAINER) (NOME DO CONTAINER)
+
+FOR PASSING AN VOLUME: (dir mappings)
+docker run --name (name of app) -p (desktop port):(docker port) -rm -v (absolute path of the desired dir that you want to me shared):(the docker workdir) (name of the image)
+(IF YOU PASS THE FLAG -rm it is for the container get deleted after you stop it)
+(TO PREVENT MAPPING OF AN CERTAIN FILE PASS ANOTHER -v (PATH OF THE FILE THAT YOU DONT WANT TO ME MAPPED))-> Theres no side docker passing so he will not mapp it!(":").
+
+DOCKER COMPOSE: (combining multiple containers) - create an docker-compose.yaml (check ours)
